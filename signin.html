@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+        .sign-in-container {
+            background-color: #fff;
+            padding: 20px 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #333;
+        }
+        input {
+            width: 100%;
+            padding: 10px;
+            font-size: 14px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+        input:focus {
+            outline: none;
+            border-color: #007BFF;
+        }
+        .error {
+            color: red;
+            font-size: 12px;
+            margin-top: 5px;
+        }
+        button {
+            width: 100%;
+            padding: 10px;
+            font-size: 16px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="sign-in-container">
+    <h1>Sign In</h1>
+    <form id="signInForm">
+        <div class="form-group">
+            <label for="email">Email Address</label>
+            <input type="email" id="email" name="email" placeholder="Enter your email">
+            <div class="error" id="emailError"></div>
+        </div>
+        <div class="form-group">
+            <label for="password">Password</label>
+            <input type="password" id="password" name="password" placeholder="Enter your password">
+            <div class="error" id="passwordError"></div>
+        </div>
+        <button type="submit">Sign In</button>
+    </form>
+</div>
+
+<script>
+    // JavaScript for form validation and redirection
+    document.getElementById('signInForm').addEventListener('submit', function (e) {
+        e.preventDefault(); // Prevent form submission
+
+        // Get input values
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+
+        // Clear previous errors
+        emailError.textContent = '';
+        passwordError.textContent = '';
+
+        // Validate email
+        const emailValue = emailInput.value.trim();
+        const emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (emailValue === '') {
+            emailError.textContent = 'Email is required.';
+            return;
+        } else if (!emailPattern.test(emailValue)) {
+            emailError.textContent = 'Please enter a valid email address.';
+            return;
+        }
+
+        // Validate password
+        const passwordValue = passwordInput.value.trim();
+        if (passwordValue === '') {
+            passwordError.textContent = 'Password is required.';
+            return;
+        } else if (passwordValue.length < 6) {
+            passwordError.textContent = 'Password must be at least 6 characters.';
+            return;
+        }
+
+        // If no errors, redirect to the home page
+        alert('Form submitted successfully!');
+        window.location.href = 'te.html'; // Replace with your desired home page URL
+    });
+</script>
+
+</body>
+</html>

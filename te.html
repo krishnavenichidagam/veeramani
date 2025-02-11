@@ -1,0 +1,250 @@
+<html>
+<head>
+<style>
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    background: #eaeaea;
+    overflow: hidden;
+}
+
+.container{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 1000px;
+    height: 600px;
+    background: #f5f5f5;
+    box-shadow: 0 30px 50px #dbdbdb;
+}
+
+.container .slide .item{
+    width: 200px;
+    height: 300px;
+    position: absolute;
+    top: 50%;
+    transform: translate(0, -50%);
+    border-radius: 20px;
+    box-shadow: 0 30px 50px #505050;
+    background-position: 50% 50%;
+    background-size: cover;
+    display: inline-block;
+    transition: 0.5s;
+}
+
+.slide .item:nth-child(1),
+.slide .item:nth-child(2){
+    top: 0;
+    left: 0;
+    transform: translate(0, 0);
+    border-radius: 0;
+    width: 100%;
+    height: 100%;
+}
+
+
+.slide .item:nth-child(3){
+    left: 50%;
+}
+.slide .item:nth-child(4){
+    left: calc(50% + 220px);
+}
+.slide .item:nth-child(5){
+    left: calc(50% + 440px);
+}
+
+/* here n = 0, 1, 2, 3,... */
+.slide .item:nth-child(n + 6){
+    left: calc(50% + 660px);
+    opacity: 0;
+}
+
+
+
+.item .content{
+    position: absolute;
+    top: 50%;
+    left: 100px;
+    width: 300px;
+    text-align: left;
+    color: #eee;
+    transform: translate(0, -50%);
+    font-family: system-ui;
+    display: none;
+}
+
+
+.slide .item:nth-child(2) .content{
+    display: block;
+}
+
+
+.content .name{
+    font-size: 40px;
+    text-transform: uppercase;
+    font-weight: bold;
+    opacity: 0;
+    animation: animate 1s ease-in-out 1 forwards;
+}
+
+.content .des{
+    margin-top: 10px;
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.3s 1 forwards;
+}
+
+.content button{
+    padding: 10px 20px;
+    border: none;
+    cursor: pointer;
+    opacity: 0;
+    animation: animate 1s ease-in-out 0.6s 1 forwards;
+}
+
+
+@keyframes animate {
+    from{
+        opacity: 0;
+        transform: translate(0, 100px);
+        filter: blur(33px);
+    }
+
+    to{
+        opacity: 1;
+        transform: translate(0);
+        filter: blur(0);
+    }
+}
+
+
+
+.button{
+    width: 100%;
+    text-align: center;
+    position: absolute;
+    bottom: 20px;
+}
+
+.button button{
+    width: 40px;
+    height: 35px;
+    border-radius: 8px;
+    border: none;
+    cursor: pointer;
+    margin: 0 5px;
+    border: 1px solid #000;
+    transition: 0.3s;
+}
+
+.button button:hover{
+    background: #ababab;
+    color: #fff;
+}
+.logout-button {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 15px;
+    background-color: skyblue;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: 0.3s;
+    z-index: 10;
+}
+
+.logout-button:hover {
+    background-color: darkred;
+}
+
+</style>
+<body>
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+     
+    <div class="container">
+<button class="logout-button" onclick="logout()">Logout</button>
+        <div class="slide">
+
+            
+            <div class="item" style="background-image: url(https://imageio.forbes.com/specials-images/imageserve/5dbb4182d85e3000078fddae/The-9-Biggest-Technology-Trends-That-Will-Transform-Medicine-And-Healthcare-In-2020/960x0.jpg?height=474&width=711&fit=bounds);">
+                <div class="content">
+                    <div class="name">HealthCare Tech</div>
+                    
+                   <button onclick="window.location.href='health.html'">See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://www.msd.com/wp-content/uploads/sites/9/2021/12/digital-globe.jpeg);">
+                <div class="content">
+                    <div class="name">Tech And Innovation</div>
+                   
+                    <button onclick="window.location.href='tech.html'">See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://src.n-ix.com/uploads/2023/06/13/42a66e04-88c6-43f4-9b41-5d5ac941508a.png);">
+                <div class="content">
+                    <div class="name">CyberSecurity</div>
+                                        <button onclick="window.location.href='cyber.html'">See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://www.pioneeringminds.com/wp-content/uploads/2019/10/Space-Exploration-102719.jpg); ">
+                <div class="content">
+                    <div class="name">Sapce Tech</div>
+                    
+                    <button onclick="window.location.href='space.html'">See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://www.automation.com/getmedia/594db017-ec63-4363-9776-5599fea95c17/RPA-Rockwell-Feature-Sept-2024-web.png?width=500&height=313&ext=.png); ">
+                <div class="content">
+                    <div class="name">Robotics</div>
+                    
+                    <button onclick="window.location.href='robotics.html'">See More</button>
+                </div>
+            </div>
+            <div class="item" style="background-image: url(https://deuscode.co.id/wp-content/uploads/2023/09/guide-to-machine-learning-and-ai.jpg);">
+                <div class="content">
+                    <div class="name">Artificial Intelligence</div>
+                    
+                    <button onclick="window.location.href='ai.html'">See More</button>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="button">
+            <button class="prev"><i class="fa-solid fa-arrow-left"></i></button>
+            <button class="next"><i class="fa-solid fa-arrow-right"></i></button>
+        </div>
+
+    </div>
+<script>
+
+function logout() {
+    alert("Logging out...");
+    window.location.href = "signin.html"; // Redirect to login page
+}
+
+let next = document.querySelector('.next')
+let prev = document.querySelector('.prev')
+
+next.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').appendChild(items[0])
+})
+
+prev.addEventListener('click', function(){
+    let items = document.querySelectorAll('.item')
+    document.querySelector('.slide').prepend(items[items.length - 1]) // here the length of items = 6
+})
+</script>
+</body>
+</html>
